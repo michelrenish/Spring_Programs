@@ -1,0 +1,5 @@
+package com.jsp.springboot_pro.Response;
+
+public class ResponceStructure {
+
+}

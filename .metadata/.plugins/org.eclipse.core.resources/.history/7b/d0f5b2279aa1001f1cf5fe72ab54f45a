@@ -1,0 +1,12 @@
+package com.jsp.springboot_pro.dao;
+
+import org.springframework.stereotype.Repository;
+
+import com.jsp.springboot_pro.entity.Employee;
+
+@Repository
+public class EmployeeDao {
+	public void SaveEmployee(Employee employee) {
+		
+	}
+}

@@ -1,0 +1,16 @@
+package com.jsp.springboot_pro.controler;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class EmployeeControler {
+	@GetMapping("/hello")
+	public void print() {
+		System.out.println("Hi everyone......");
+	}
+	@GetMapping("/hi")
+	public String printhi() {
+		return "Hi everyone......";
+	}
+}

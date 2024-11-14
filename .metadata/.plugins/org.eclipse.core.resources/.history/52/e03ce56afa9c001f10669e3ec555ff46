@@ -1,0 +1,13 @@
+package com.jsp.dao;
+
+import org.springframework.stereotype.Component;
+
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+
+@Component
+public class SridutDao {
+	public void saveStudent() {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("");
+	}
+}

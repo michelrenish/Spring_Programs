@@ -1,0 +1,21 @@
+package com.jsp.springboot_pro.dao;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.jsp.springboot_pro.entity.Employee;
+import com.jsp.springboot_pro.repository.EmployeRepo;
+
+@Repository
+public class EmployeeDao {
+	
+	@Autowired
+	private EmployeRepo repo;
+	
+	public void SaveEmployee(Employee employee) {
+		repo.save(employee);
+	}
+	public Employee getEmpById(int id) {
+		return repo.findById(id).get();
+	}
+}

@@ -1,0 +1,14 @@
+package com.jsp.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.jsp.dao.SridutDao;
+import com.jsp.entity.student;
+
+public class Sriservice {
+	@Autowired
+	private SridutDao dao;
+	public void saveStudent(student s1) {
+		dao.saveStudent(s1);
+	}
+}

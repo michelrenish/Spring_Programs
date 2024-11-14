@@ -1,0 +1,27 @@
+package com.jsp.springboot_pro.controler;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.jsp.springboot_pro.entity.Employee;
+
+@RestController
+public class EmployeeControler {
+	@GetMapping("/hello")
+	public void print() {
+		System.out.println("Hi everyone......");
+	}
+	@GetMapping("/hi")
+	public String printhi() {
+		return "Hi everyone......";
+	}
+	@PostMapping("/save")
+	public void saveEmploye(@RequestBody Employee employee) {
+		System.out.println(employee.getName());
+		System.out.println(employee.getSalary());
+		System.out.println(employee.getPhone());
+		System.out.println(employee.getLocation());
+	}
+}

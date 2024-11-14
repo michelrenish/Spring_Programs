@@ -1,0 +1,32 @@
+package com.jsp.springboot_pro.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.jsp.springboot_pro.dao.EmployeeDao;
+import com.jsp.springboot_pro.entity.Employee;
+
+@Repository
+public class EmployeeServie {
+	@Autowired
+	private EmployeeDao dao;
+	
+	public void saveEmployee(Employee employee) {
+
+		if(10 == String.valueOf(employee.getPhone()).length() ) {
+		dao.SaveEmployee(employee);
+		}
+		else {
+			System.out.println("Enter 10 digit");
+		}
+	}
+	public Employee getEmpById(int id) {
+		return dao.getEmpById(id);
+	}
+	public void deleteById(int id) {
+		dao.deleteById(id);
+	}
+	public Employee updateEmp(int id,Employee updateEmp) {
+		return dao.updateEmp(id, updateEmp);
+	}
+}

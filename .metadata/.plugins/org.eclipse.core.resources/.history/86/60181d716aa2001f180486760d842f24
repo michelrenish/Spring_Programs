@@ -1,0 +1,13 @@
+package com.jsp.springboot_pro.Response;
+
+import org.springframework.stereotype.Repository;
+
+import lombok.Data;
+
+@Data
+@Repository
+public class ResponceStructure<T> {
+	private int statuscode;
+	private String message;
+	private T data;
+}

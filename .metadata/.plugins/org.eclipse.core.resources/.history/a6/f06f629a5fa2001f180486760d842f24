@@ -1,0 +1,44 @@
+package com.jsp.springboot_pro.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+import com.jsp.springboot_pro.Response.ResponceStructure;
+import com.jsp.springboot_pro.dao.EmployeeDao;
+import com.jsp.springboot_pro.entity.Employee;
+
+@Service
+public class EmployeeServie {
+	@Autowired
+	private EmployeeDao dao;
+
+	public ResponceStructure<Employee> saveEmployee(Employee employee) {
+
+		ResponceStructure<Employee> responceStructure = new ResponceStructure<Employee>();
+
+		if (10 == String.valueOf(employee.getPhone()).length()) {
+			responceStructure.setMessage("Employee Details are Saved");
+			responceStructure.setStatuscode(HttpStatus.CREATED.value());
+			responceStructure.setData(dao.SaveEmployee(employee));
+			return responceStructure;
+		} else {
+			return null;
+		}
+	}
+
+	public ResponceStructure<Employee> getEmpById(int id) {
+		ResponceStructure<Employee> responceStructure = new ResponceStructure<Employee>();
+		responceStructure.setMessage("Employee Detail of "+id);
+		responceStructure.setStatuscode(HttpStatus.OK.value());
+		responceStructure.setData(dao.getEmpById(id));
+		return responceStructure;
+	}
+
+	public void deleteById(int id) {
+		dao.deleteById(id);
+	}
+
+	public Employee updateEmp(int id, Employee updateEmp) {
+		return dao.updateEmp(id, updateEmp);
+	}
+}

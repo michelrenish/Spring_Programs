@@ -1,0 +1,48 @@
+package com.jsp.springboot_pro.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+import com.jsp.springboot_pro.Response.ResponceStructure;
+import com.jsp.springboot_pro.dao.EmployeeDao;
+import com.jsp.springboot_pro.entity.Employee;
+
+@Service
+public class EmployeeServie {
+	@Autowired
+	private EmployeeDao dao;
+	@Autowired
+	private ResponceStructure<Employee> responceStructure;
+	
+	public ResponceStructure<Employee> saveEmployee(Employee employee) {
+		if (10 == String.valueOf(employee.getPhone()).length()) {
+			responceStructure.setMessage("Employee Details are Saved");
+			responceStructure.setStatuscode(HttpStatus.CREATED.value());
+			responceStructure.setData(dao.SaveEmployee(employee));
+			return responceStructure;
+		} else {
+			return null;
+		}
+	}
+
+	public ResponceStructure<Employee> getEmpById(int id) {
+		responceStructure.setMessage("Employee Detail of ID: "+id);
+		responceStructure.setStatuscode(HttpStatus.OK.value());
+		responceStructure.setData(dao.getEmpById(id));
+		return responceStructure;
+	}
+
+	public ResponceStructure<Employee> deleteById(int id) {
+		responceStructure.setMessage("Employee details Delete to ID: "+id);
+		responceStructure.setStatuscode(HttpStatus.OK.value());
+		dao.deleteById(id);
+		return responceStructure;
+	}
+
+	public ResponceStructure<Employee> updateEmp(int id, Employee updateEmp) {
+		responceStructure.setMessage("Employee details Updated to ID: "+id);
+		responceStructure.setStatuscode(HttpStatus.OK.value());
+		responceStructure.setData(updateEmp);
+		return responceStructure;
+	}
+}

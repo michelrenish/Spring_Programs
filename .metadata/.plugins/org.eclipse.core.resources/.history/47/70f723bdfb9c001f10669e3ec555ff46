@@ -1,0 +1,29 @@
+package com.jsp.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.jsp.entity.student;
+
+@Controller
+public class mycontroller {
+	@RequestMapping("/hi")
+	public String hi() {
+		return "hi.jsp";
+		}
+	@RequestMapping("/register")
+	public ModelAndView register() {
+		ModelAndView mv=new ModelAndView();
+		student s1=new student();
+		mv.setViewName("register.jsp");
+		mv.addObject("student",s1);
+		return mv;
+	}
+	@RequestMapping("/save")
+	public ModelAndView saveStudent(student s1) {
+		System.out.println(s1);
+		return new ModelAndView("hi.jsp");
+	}
+
+}
