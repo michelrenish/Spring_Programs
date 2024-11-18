@@ -1,9 +1,0 @@
-<html>
-<body>
-<h2><%= "Employee Details Registration page!" %></h2>
-<h3>Click <a href="login">here</a> to Register</h3>
-<form action="List">
-<button>List of Employee</button>
-</form>
-</body>
-</html>

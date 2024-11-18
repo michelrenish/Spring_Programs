@@ -1,0 +1,5 @@
+package com.jsp.springboot_pro.exeption;
+
+public class ApplicationExeptionHandler {
+
+}
